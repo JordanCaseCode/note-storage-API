@@ -10,6 +10,8 @@ public class PrivateNote {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="PRIVATE_ID", nullable = false)
     private long privateId;
+    @Column(name="NAME",nullable = false)
+    private String privateNoteName;
     @Column(name="USER_ID", nullable = false)
     private String userId;
     @Column(name="SUBJECT_ID")
@@ -19,7 +21,13 @@ public class PrivateNote {
     private String content;
 
     //getters and setters
+    public void setPrivateNoteName(String privateNoteName) {
+        this.privateNoteName = privateNoteName;
+    }
 
+    public String getPrivateNoteName() {
+        return privateNoteName;
+    }
 
     public void setPrivateId(long privateId) {
         this.privateId = privateId;

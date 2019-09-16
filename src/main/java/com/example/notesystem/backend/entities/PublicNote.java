@@ -4,12 +4,14 @@ package com.example.notesystem.backend.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name= "PUBLIC_NOTE")
+@Table(name= "PUBLICNOTE")
 public class PublicNote {
     @Id //primary key
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="PUBLIC_ID", nullable = false)
     private long publicId;
+    @Column(name="NAME",nullable = false)
+    private String publicNoteName;
     @Column(name="USER_ID", nullable = false)
     private String userId;
     @Column(name="SUBJECT_ID", nullable = false)
@@ -20,6 +22,14 @@ public class PublicNote {
 
     //getters and setters
 
+
+    public void setPublicNoteName(String publicNoteName) {
+        this.publicNoteName = publicNoteName;
+    }
+
+    public String getPublicNoteName() {
+        return publicNoteName;
+    }
 
     public void setPublicId(long publicId) {
         this.publicId = publicId;

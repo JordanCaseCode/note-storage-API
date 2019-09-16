@@ -8,14 +8,13 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
+
     //create the user
     User save(User user);
 
-    //find user by either userName or email
-    //both are optional because they could not return anything which case will throw error to client
-    Optional<User> findByUserName(String userName);
-    Optional<User> findByEmail(String email);
-
-
+    //find user by either userName or email and their password
+    //allows user to login with either the email/username and their password
+    //returns optional because there's not guarantee
+    Optional<User> findByUserNameOrEmailAndHashedPassword(String userName, String email, String hashedPassword);
 
 }

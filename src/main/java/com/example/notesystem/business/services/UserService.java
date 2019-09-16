@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Base64;
+
 //service class created to separate concerns between the repository and the API.
 //holds the business logic for queries and data gather
 @Service
@@ -19,6 +20,7 @@ public class UserService {
     private PublicNoteRepository publicNoteRepository;
     private SubjectRepository subjectRepository;
     //constructor for the service class
+
     @Autowired
     public UserService(UserRepository userRepository, PrivateNoteRepository privateNoteRepository, PublicNoteRepository publicNoteRepository, SubjectRepository subjectRepository) {
         this.userRepository = userRepository;
@@ -33,17 +35,13 @@ public class UserService {
         if(userInfo == null) {
             return null; //error!!  may need to throw 404 error
         }
-
         //:TODO separate username:password to check user table to getback user
-
-
-
+        return null;
     }
 
     //Decoding class to separate the authentication string sent as a standard http basic authentication header
     //string is of form username:password
     private String decodeAuthenticationString(String authString){
-
         String decodedAuth = "";
         // Header is in the format "Basic 5tyc0uiDat4"
         // We need to extract data before decoding it back to original string

@@ -18,4 +18,5 @@ public class UserController {
     public UserProfile getUserProfile(@RequestHeader(value="UserAuth") String userAuth) {
         return this.userService.getUserProfile(userAuth);
     }
+
 }

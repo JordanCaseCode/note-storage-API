@@ -4,7 +4,7 @@ package com.example.notesystem.backend.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name= "PRIVATE_NOTE")
+@Table(name= "PRIVATENOTE")
 public class PrivateNote {
     @Id //primary key
     @GeneratedValue(strategy = GenerationType.AUTO)

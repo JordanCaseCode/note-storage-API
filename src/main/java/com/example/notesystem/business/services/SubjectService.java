@@ -27,12 +27,16 @@ public class SubjectService {
 
     //create service for getting database
     public SubjectProfile getSubjectProfile() {
-        Iterable subjects = this.subjectRepository.findAll();
-        SubjectProfile currentSubject = new SubjectProfile();
+        //your line looked like this
+        //Iterable subjects = this.subjectRepository.findAll();
+        // iterable is like a list or other data structure where it needs a type to describe its items
+        Iterable<Subject> subjects = this.subjectRepository.findAll();
+        SubjectProfile subjectProfile = new SubjectProfile();
 
-        subjects.forEach((subject)->{
-            subject.getSubjectId();
+        subjects.forEach( subject ->{
+
         });
+
     }
 
 }

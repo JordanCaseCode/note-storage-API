@@ -5,7 +5,6 @@ package com.example.notesystem.business.domains;
 public class SubjectProfile {
     private long id;
     private String name;
-    private long[] privateNotes;
     private long[] publicNotes;
 
 
@@ -15,10 +14,6 @@ public class SubjectProfile {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setPrivateNotes(long[] privateNotes) {
-        this.privateNotes = privateNotes;
     }
 
     public void setPublicNotes(long[] publicNotes) {
@@ -32,10 +27,6 @@ public class SubjectProfile {
 
     public String getName() {
         return this.name;
-    }
-
-    public long[] getPrivateNotes() {
-        return this.privateNotes;
     }
 
     public long[] getPublicNotes() {

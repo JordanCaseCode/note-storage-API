@@ -15,7 +15,7 @@ import java.util.Optional;
 public interface PublicNoteRepository extends PagingAndSortingRepository<PublicNote, Long> {
 
     PublicNote save(PublicNote publicNote);
-    Optional<Iterable<PublicNote>> findByUserId(Long userId);
+    Optional<Iterable<PublicNote>> findAllByUserId(Long userId);
     Iterable<PublicNote> findAll(Sort sort);
     Page<PublicNote> findAll(Pageable pageable);
 

@@ -1,6 +1,7 @@
 package com.example.notesystem.business.services;
 
 import com.example.notesystem.backend.entities.PrivateNote;
+import com.example.notesystem.backend.entities.PublicNote;
 import com.example.notesystem.backend.entities.User;
 import com.example.notesystem.business.domains.UserProfile;
 import com.example.notesystem.backend.repositories.PrivateNoteRepository;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.nio.file.attribute.UserPrincipal;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -20,10 +22,10 @@ import java.util.OptionalInt;
 @Service
 public class UserService {
 
-    private UserRepository userRepository;
-    private PrivateNoteRepository privateNoteRepository;
-    private PublicNoteRepository publicNoteRepository;
-    private SubjectRepository subjectRepository;
+    private final UserRepository userRepository;
+    private final PrivateNoteRepository privateNoteRepository;
+    private final PublicNoteRepository publicNoteRepository;
+    private final SubjectRepository subjectRepository;
     //constructor for the service class
 
     @Autowired
@@ -34,7 +36,9 @@ public class UserService {
         this.subjectRepository = subjectRepository;
     }
 
-    //create service for getting database
+    //create services for Controller to implement
+
+    //Get method for obtaining user
     public UserProfile getUserProfile(String authString) {
         //check to see if the client sent anything for username:password
         String[] userInfo = decodeAuthenticationString(authString);
@@ -61,11 +65,20 @@ public class UserService {
         Optional<Iterable<PrivateNote>> privateNoteSet = privateNoteRepository.findAllByUserId(userProfile.getId());
         if(privateNoteSet.isPresent()) {
             //TODO:finish creating the userProfile
-
+            ArrayList<String> privateNames = new ArrayList<>();
+            privateNoteSet.get().forEach(privateNote -> privateNames.add(privateNote.getPrivateNoteName()));
+            userProfile.setPrivateNotes(privateNames);
         }
-
-
-        return null;
+        //find and set all the names for the public notes related to this user
+        Optional<Iterable<PublicNote>> publicNoteSet = publicNoteRepository.findAllByUserId(userProfile.getId());
+        if(publicNoteSet.isPresent()) {
+            //TODO:finish creating the userProfile
+            ArrayList<String> publicNames = new ArrayList<>();
+           publicNoteSet.get().forEach( publicNote -> publicNames.add(publicNote.getPublicNoteName()));
+            userProfile.setPublicNotes(publicNames);
+        }
+        //return the userProfile
+        return userProfile;
     }
 
     //Decoding class to separate the authentication string sent as a standard http basic authentication header

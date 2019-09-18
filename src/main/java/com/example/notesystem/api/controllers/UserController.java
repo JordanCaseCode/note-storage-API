@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     private UserService userService; //autowire dependency for this controller
 
-    @RequestMapping(produces = "userprofile/json", method = RequestMethod.GET, value = "/info")
+    @RequestMapping(method = RequestMethod.GET, value = "/info")
     @ResponseBody
     public UserProfile getUserProfile(@RequestHeader(value="UserAuth") String userAuth) {
         return this.userService.getUserProfile(userAuth);

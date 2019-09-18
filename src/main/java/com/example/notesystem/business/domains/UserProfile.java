@@ -1,5 +1,7 @@
 package com.example.notesystem.business.domains;
 
+import java.util.ArrayList;
+
 //business layer abstraction from the backend information
 //this is for when a user logs in, to receive all notes that they made using the notes and send this to the client
 public class UserProfile {
@@ -8,9 +10,8 @@ public class UserProfile {
     private String lastName;
     private String userName;
     private String email;
-    private String hashedPassword;
-    private long[] publicNotes;
-    private long[] privateNotes;
+    private ArrayList<String> publicNotes;
+    private ArrayList<String> privateNotes;
 
 
     public void setId(long id) {
@@ -33,22 +34,19 @@ public class UserProfile {
         this.email = email;
     }
 
-    public void setHashedPassword(String hashedPassword) {
-        this.hashedPassword = hashedPassword;
-    }
-
-    public void setPublicNotes(long[] publicNotes) {
+    public void setPublicNotes(ArrayList<String> publicNotes) {
         this.publicNotes = publicNotes;
     }
 
-    public void setPrivateNotes(long[] privateNotes) {
+    public void setPrivateNotes(ArrayList<String> privateNotes) {
         this.privateNotes = privateNotes;
     }
+
+
 
     public long getId() {
         return id;
     }
-
 
     public String getFirstName() {
         return firstName;
@@ -66,15 +64,11 @@ public class UserProfile {
         return email;
     }
 
-    public String getHashedPassword() {
-        return hashedPassword;
-    }
-
-    public long[] getPublicNotes() {
+    public ArrayList<String> getPublicNotes() {
         return publicNotes;
     }
 
-    public long[] getPrivateNotes() {
+    public ArrayList<String> getPrivateNotes() {
         return privateNotes;
     }
 }

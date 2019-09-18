@@ -9,10 +9,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface PublicNoteRepository extends PagingAndSortingRepository<PublicNote, Long> {
 
     PublicNote save(PublicNote publicNote);
+    Optional<Iterable<PublicNote>> findAllByUserId(Long userId);
     Iterable<PublicNote> findAll(Sort sort);
     Page<PublicNote> findAll(Pageable pageable);
 

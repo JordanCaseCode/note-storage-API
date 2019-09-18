@@ -8,9 +8,8 @@ public class UserProfile {
     private String lastName;
     private String userName;
     private String email;
-    private String hashedPassword;
-    private long[] publicNotes;
-    private long[] privateNotes;
+    private String[] publicNotes;
+    private String[] privateNotes;
 
 
     public void setId(long id) {
@@ -33,22 +32,19 @@ public class UserProfile {
         this.email = email;
     }
 
-    public void setHashedPassword(String hashedPassword) {
-        this.hashedPassword = hashedPassword;
-    }
-
-    public void setPublicNotes(long[] publicNotes) {
+    public void setPublicNotes(String[] publicNotes) {
         this.publicNotes = publicNotes;
     }
 
-    public void setPrivateNotes(long[] privateNotes) {
+    public void setPrivateNotes(String[] privateNotes) {
         this.privateNotes = privateNotes;
     }
+
+
 
     public long getId() {
         return id;
     }
-
 
     public String getFirstName() {
         return firstName;
@@ -66,15 +62,11 @@ public class UserProfile {
         return email;
     }
 
-    public String getHashedPassword() {
-        return hashedPassword;
-    }
-
-    public long[] getPublicNotes() {
+    public String[] getPublicNotes() {
         return publicNotes;
     }
 
-    public long[] getPrivateNotes() {
+    public String[] getPrivateNotes() {
         return privateNotes;
     }
 }

@@ -12,7 +12,7 @@ public interface PrivateNoteRepository extends PagingAndSortingRepository<Privat
 
     PublicNote save(PublicNote publicNote);//create note
     //optional iterable returned for users private notes
-    Optional<Iterable<PublicNote>> findAllByUserId(Long userId);
+    Optional<Iterable<PrivateNote>> findAllByUserId(Long userId);
     //allow deleting of note
     PublicNote deleteByUserIdAndAndPrivateNoteName(String userId, String privateNoteName);
     //count how many notes this person has

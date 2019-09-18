@@ -15,7 +15,7 @@ public class PublicNote {
     @Column(name="USER_ID", nullable = false)
     private String userId;
     @Column(name="SUBJECT_ID", nullable = false)
-    private String subjectId;
+    private long subjectId;
     @Lob // define as large object
     @Column(name="CONTENT", columnDefinition = "CLOB", nullable = false) //character lob
     private String content;
@@ -39,7 +39,7 @@ public class PublicNote {
         this.userId = userId;
     }
 
-    public void setSubjectId(String subjectId) {
+    public void setSubjectId(long subjectId) {
         this.subjectId = subjectId;
     }
 
@@ -55,7 +55,7 @@ public class PublicNote {
         return userId;
     }
 
-    public String getSubjectId() {
+    public long getSubjectId() {
         return subjectId;
     }
 

@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface SubjectRepository extends PagingAndSortingRepository<Subject, String> {
 
     Subject save (Subject subject); //save the subject
-    Iterable<Subject> findAll(Sort sort);
+    Iterable<Subject> findAll();
     Page<Subject> findAll(Pageable pageable); //find all subjects and return pageable subjects
 
     //find subject and return optional object to run get() or isPresent() on

@@ -12,6 +12,7 @@ public class UserProfile {
     private long[] publicNotes;
     private long[] privateNotes;
 
+
     public void setId(long id) {
         this.id = id;
     }
@@ -47,6 +48,7 @@ public class UserProfile {
     public long getId() {
         return id;
     }
+
 
     public String getFirstName() {
         return firstName;
